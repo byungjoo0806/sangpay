@@ -395,7 +395,7 @@ function update(){
 function render() {
   ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(spaceshipImage, spaceshipX, spaceshipY);
-  ctx.fillText(`Score : ${score}`, 20, 20);
+  ctx.fillText(`Score : ${score}`, 60, 20);
   ctx.fillStyle = "white";
   ctx.font = "20px Arial";
 
@@ -433,25 +433,48 @@ function renderPause(){
     // 일시정지 메세지
     ctx.fillStyle = "yellow";
     ctx.font = "50px Arial";
-    ctx.fillText("게임설명", canvas.width / 2 - 80 , canvas.height / 2 - 200);
+    ctx.textAlign = "center";
+    ctx.fillText("게임설명", canvas.width/2, canvas.height / 2 - 200);
     ctx.font = "20px Arial"
-    ctx.fillText("당신은 외계인에게 납치된 지구인들을", canvas.width / 2 - 160, canvas.height / 2 - 160);
+    ctx.fillText("당신은 외계인에게 납치된 지구인들을", canvas.width / 2, canvas.height / 2 - 160);
     ctx.font = "20px Arial"
-    ctx.fillText("구조하라는 특별한 임무를 받았다.", canvas.width / 2 - 160, canvas.height / 2 - 130);
+    ctx.fillText("구조하라는 특별한 임무를 받았다.", canvas.width / 2, canvas.height / 2 - 130);
     ctx.font = "20px Arial"
-    ctx.fillText("납치된 지구인들을 구조하라.", canvas.width / 2 - 160, canvas.height / 2 - 100);
+    ctx.fillText("납치된 지구인들을 구조하라.", canvas.width / 2, canvas.height / 2 - 100);
     ctx.font = "20px Arial"
-    ctx.fillText("구조된 지구인의 수만큼 Score를 얻게되며,", canvas.width / 2 - 160, canvas.height / 2 - 70);
+    ctx.fillText("구조된 지구인의 수만큼 Score를 얻게되며,", canvas.width / 2, canvas.height / 2 - 70);
     ctx.font = "20px Arial"
-    ctx.fillText("적립된 Score는 Token으로 교환할 수 있다.", canvas.width / 2 - 160, canvas.height / 2 - 40);
+    ctx.fillText("적립된 Score는 Token으로 교환할 수 있다.", canvas.width / 2, canvas.height / 2 - 40);
     ctx.font = "20px Arial"
-    ctx.fillText("방향키로 내려오는 지구인에게 접근하면", canvas.width / 2 - 160, canvas.height / 2 + 40);
+    ctx.fillText("방향키로 내려오는 지구인에게 접근하면", canvas.width / 2, canvas.height / 2 + 40);
     ctx.font = "20px Arial"
-    ctx.fillText("구조 성공!", canvas.width / 2 - 160, canvas.height / 2 + 70);
+    ctx.fillText("구조 성공!", canvas.width / 2, canvas.height / 2 + 70);
     ctx.font = "20px Arial"
-    ctx.fillText("ESC 또는 p 키로 게임을 시작하거나", canvas.width / 2 - 160, canvas.height / 2 + 100);
+    ctx.fillText("ESC 또는 p 키로 게임을 시작하거나", canvas.width / 2, canvas.height / 2 + 100);
     ctx.font = "20px Arial"
-    ctx.fillText("일시정지 할 수 있다.", canvas.width / 2 - 160, canvas.height / 2 + 130);
+    ctx.fillText("일시정지 할 수 있다.", canvas.width / 2, canvas.height / 2 + 130);
+
+    // ctx.fillStyle = "yellow";
+    // ctx.font = "50px Arial";
+    // ctx.fillText("게임설명", canvas.width / 2 - 80 , canvas.height / 2 - 200);
+    // ctx.font = "20px Arial"
+    // ctx.fillText("당신은 외계인에게 납치된 지구인들을", canvas.width / 2 - 160, canvas.height / 2 - 160);
+    // ctx.font = "20px Arial"
+    // ctx.fillText("구조하라는 특별한 임무를 받았다.", canvas.width / 2 - 160, canvas.height / 2 - 130);
+    // ctx.font = "20px Arial"
+    // ctx.fillText("납치된 지구인들을 구조하라.", canvas.width / 2 - 160, canvas.height / 2 - 100);
+    // ctx.font = "20px Arial"
+    // ctx.fillText("구조된 지구인의 수만큼 Score를 얻게되며,", canvas.width / 2 - 160, canvas.height / 2 - 70);
+    // ctx.font = "20px Arial"
+    // ctx.fillText("적립된 Score는 Token으로 교환할 수 있다.", canvas.width / 2 - 160, canvas.height / 2 - 40);
+    // ctx.font = "20px Arial"
+    // ctx.fillText("방향키로 내려오는 지구인에게 접근하면", canvas.width / 2 - 160, canvas.height / 2 + 40);
+    // ctx.font = "20px Arial"
+    // ctx.fillText("구조 성공!", canvas.width / 2 - 160, canvas.height / 2 + 70);
+    // ctx.font = "20px Arial"
+    // ctx.fillText("ESC 또는 p 키로 게임을 시작하거나", canvas.width / 2 - 160, canvas.height / 2 + 100);
+    // ctx.font = "20px Arial"
+    // ctx.fillText("일시정지 할 수 있다.", canvas.width / 2 - 160, canvas.height / 2 + 130);
 };
 
 // 일시정지 키 입력 (esc나 p 누르면 일시정지)
@@ -460,6 +483,7 @@ window.addEventListener('keydown', function(event){
        || event.keyCode === 27) {
         togglePause();
         // alert("일시정지 되었습니다. esc나 p키를 다시 입력하시면 게임이 재개됩니다.")
+
     }
 });
 
@@ -490,7 +514,7 @@ function main() {
         newdiv.style.marginTop = "20px";
         let newdiv3 = document.createElement("div");
         h_popupbox.appendChild(newdiv3);
-        newdiv3.innerHTML = "보상 : 상장페이 " + reward + "개";
+        newdiv3.innerHTML = "보상 : spacetoken " + reward + "개";
         newdiv3.style.marginTop = "20px";
         let newdiv2=document.createElement('div');
         h_popupbox.appendChild(newdiv2)
@@ -567,14 +591,16 @@ function userGetreward() {
     reward=Math.floor(score/10);
     console.log("지금 게임유저2",gameUser1);
     //게임시작시 차감
-    gameUser1.coin.coin_num=gameUser1.coin.coin_num-1;
+    // 소수점 4자리로 나타나게 계산
+    gameUser1.coin.coin_num=Number((gameUser1.coin.coin_num-1).toFixed(4));
     setLocalHistory(gameUser,"game",{gamename:"지구인들을 구조하라!"},{type:"sangpay",amount:1});
 
     //점수에 따른 보상얻는 부분
-    gameUser1.token[9].token_num=gameUser1.token[9].token_num+reward;
+    // 소수점 4자리로 나타나게 계산
+    gameUser1.token[7].token_num= Number((gameUser1.token[7].token_num+reward).toFixed(4));
     console.log(reward);
     localStorage.setItem("user_"+gameUser,JSON.stringify(gameUser1));
-    setLocalHistory(gameUser,"game",{gamename:"지구인들을 구조하라!"},{type:gameUser1.token[9].token_name,amount:reward});
+    setLocalHistory(gameUser,"game",{gamename:"지구인들을 구조하라!"},{type:gameUser1.token[7].token_name,amount:reward});
 
 }
 let h_gamestart = document.querySelector(".h-gamestart");
@@ -636,3 +662,29 @@ h_gamestart.addEventListener("click", function () {
 // setupKeyboardListener();
 // createEnemy();
 // main();
+
+//     }
+// });
+
+// function main() {
+//     if(!gameOver){
+//         if(!isPaused) {
+//             update(); // 좌표 값을 업데이트 하고
+//         }
+//         render(); // 그려주고
+
+//         if(isPaused) {
+//             renderPause();
+//         }
+
+//             requestAnimationFrame(main);
+//         } else{
+//             ctx.drawImage(gameOverImage,10,100,380,380);
+//         }
+//     }
+
+// loadImage();
+// setupKeyboardListener();
+// createEnemy();
+// main();
+
