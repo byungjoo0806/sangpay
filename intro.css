@@ -593,15 +593,11 @@
     from {
         scale: 1;
         opacity: 1;
-        top: 50%;
-        left: 48.1%;
     }
 
     to {
         scale: 10;
         opacity: 0;
-        top: 0;
-        left: 0;
     }
 }
 
